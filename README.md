@@ -13,11 +13,15 @@
 
 <br/>
 
+<img src="assets/banner_hero.jpg" alt="Denge-Oyun-Teorisi-XAI Banner" width="100%" />
+
+<br/>
+
 > *"Bir modelin doğruluğu onun işlem gücünü, o karara nasıl vardığını açıklayabilmesi ise onun bilgeliğini gösterir. Köklerden göklere uzanan hakikat arayışında yapay zekâ, oyun teorisinin kusursuz matematiği ile şeffaflaşmak zorundadır."*
 
 <br/>
 
-[📖 Felsefe](#-felsefi-ve-epistemolojik-temeller) • [🏛️ Kutsal Üçlü](#️-oyun-teorisi-kutsal-üçlüsü-matematiksel-derinlik) • [🔄 Mimari](#-sistem-mimarisi-ve-veri-akışı) • [⚡ Hızlandırma](#-hesaplama-maliyeti-ve-edge-ai-optimizasyonu) • [🚀 Hızlı Başlangıç](#-kurulum-ve-hızlı-başlangıç) • [🔬 CLI ve Notebooklar](#-komut-satırı-arayüzü-cli-ve-araştırma-defterleri)
+[📖 Felsefe](#-felsefi-ve-epistemolojik-temeller) • [🏛️ Kutsal Üçlü](#️-oyun-teorisi-kutsal-üçlüsü-matematiksel-derinlik) • [🔄 Mimari](#-sistem-mimarisi-ve-dizin-yapısı) • [⚡ Hızlandırma](#-hesaplama-maliyeti-ve-edge-ai-optimizasyonu) • [🚀 Hızlı Başlangıç](#-kurulum-ve-hızlı-başlangıç) • [🔬 CLI ve Notebooklar](#-komut-satırı-arayüzü-cli-ve-araştırma-defterleri)
 
 </div>
 
@@ -54,6 +58,11 @@ graph TD
 ```
 
 ### 1. John Nash & Rekabetçi Olmayan Oyunlar (Non-Cooperative Equilibrium)
+
+<p align="center">
+  <img src="assets/nash_equilibrium.jpg" alt="John Nash Equilibrium Dynamics" width="85%" />
+</p>
+
 Bir modeldeki özellikler bağımsız hareket etmez; birbirlerini gölgeler (feature suppression), ikame eder veya çoklu doğrusal bağlantı (multicollinearity) ile baskılarlar.
 - **Payoff Matrisi:** $A_{ij}$, $j$ özniteliği varken $i$ özniteliğinin modele sağladığı marjinal getiri/kayıp azalmasıdır.
 - **Denge Koşulu:** Hiçbir özniteliğin tek taraflı strateji değiştirerek kazancını artıramayacağı kararlı denge noktası:
@@ -61,7 +70,14 @@ Bir modeldeki özellikler bağımsız hareket etmez; birbirlerini gölgeler (fea
 - **Suppression (Baskılama) Tespiti:** Bir özelliğin tekil getirisi $A_{ii}$ iken, rakip özellik varlığında $A_{ij}$ değerinin belirgin düşmesi cannibalization durumunu ortaya çıkarır.
 - **Synergy (Süper-Toplamsal Kazanç):** $(A_{ij} + A_{ji})/2 > (A_{ii} + A_{jj})/2$ koşulu, iki özelliğin bir aradayken tek başlarına yarattıkları etkiden fazlasını ürettiğini ispatlar.
 
+---
+
 ### 2. John Maynard Smith & Evrimsel Oyun Teorisi (Evolutionary Game Theory)
+
+<p align="center">
+  <img src="assets/maynard_ess.jpg" alt="Maynard Smith Evolutionary Stable Strategy ESS" width="85%" />
+</p>
+
 Biyolojik popülasyonların hayatta kalma dinamiklerinden esinlenerek, modelin veri kaymalarına (data drift), gürültüye ve düşmanca (adversarial) ataklara karşı direnci test edilir.
 - **Replicator Dynamics Diferansiyel Denklemi:**
   $$\dot{x}_i = x_i \cdot \left[ (A x)_i - x^T A x \right]$$
@@ -71,7 +87,14 @@ Biyolojik popülasyonların hayatta kalma dinamiklerinden esinlenerek, modelin v
   2. **İstila Direnci:** $u(S, S) = u(T, S) \implies u(S, T) > u(T, T)$
 - **Mimarideki Rolü:** Gürültü ve mutasyon senaryolarında yok olan zayıf/kırılgan öznitelikler elenir; yalnızca ESS koşulunu sağlayan robust özellikler koalisyona kabul edilir.
 
+---
+
 ### 3. Lloyd Shapley & Kooperatif Oyun Kuramı (Cooperative Games)
+
+<p align="center">
+  <img src="assets/shapley_coalition.jpg" alt="Lloyd Shapley Cooperative Grand Coalition" width="85%" />
+</p>
+
 Modelin nihai tahmini, seçilen özelliklerin oluşturduğu büyük koalisyonun (grand coalition $N$) kazandığı toplam ödüldür. Bu ödülün adil dağıtımı Lloyd Shapley'nin 1953 tarihli teoremine dayanır:
 
 $$\phi_i(v) = \sum_{S \subseteq N \setminus \{i\}} \frac{|S|!(|N|-|S|-1)!}{|N|!} \cdot \left[ v(S \cup \{i\}) - v(S) \right]$$
@@ -94,6 +117,13 @@ Proje, kuramsal matematikten gerçek zamanlı üretim ortamlarına doğrudan ent
 
 ```text
 Denge-Oyun-Teorisi-XAI/
+│
+├── assets/                          # Yüksek Çözünürlüklü Bilimsel Görsel Varlıklar
+│   ├── banner_hero.jpg              # Proje Ana Afişi
+│   ├── nash_equilibrium.jpg         # Nash Dengesi & Topolojik Denge Görseli
+│   ├── maynard_ess.jpg              # Maynard Smith ESS & Replicator Görseli
+│   ├── shapley_coalition.jpg        # Lloyd Shapley Büyük Koalisyon Görseli
+│   └── edge_ai_transparency.jpg     # Donanım Hızlandırma & Edge-AI Görseli
 │
 ├── core_theory/                     # Çekirdek Oyun Teorisi Matematik Modülleri
 │   ├── __init__.py
@@ -138,6 +168,10 @@ Denge-Oyun-Teorisi-XAI/
 ---
 
 ## ⚡ Hesaplama Maliyeti ve Edge-AI Optimizasyonu
+
+<p align="center">
+  <img src="assets/edge_ai_transparency.jpg" alt="Edge-AI Real-Time Transparency Hardware" width="85%" />
+</p>
 
 Oyun kuramı tabanlı açıklanabilirlik yöntemlerinin (KernelSHAP vb.) en büyük zayıflığı, $N$ özellik için $O(2^N)$ koalisyon hesabı gerektirmesidir. **Denge-Oyun-Teorisi-XAI**, bu darboğazı çözmek için 3 katmanlı hızlandırma sunar:
 
